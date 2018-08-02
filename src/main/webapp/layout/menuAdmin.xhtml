@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:form>
+    <p:growl autoUpdate="true"/>
+ 
+    <p:panelMenu style="width:200px">
+            <p:submenu label="Home Page">
+            <p:menuitem value="Home" icon="ui-icon-home" />
+        </p:submenu>
+        <p:submenu label="Menu Clienti">
+            <p:menuitem value="Elenco Clienti" icon="ui-icon-person" />
+            <p:menuitem value="Registra Cliente"  icon="ui-icon-plus" />
+        </p:submenu>
+        <p:submenu label="Menu Dipendenti">
+            <p:menuitem value="Elenco Dipendenti" icon="ui-icon-person" />
+            <p:menuitem value="Registra Dipendenti"  icon="ui-icon-plus" />
+             <p:menuitem value="Registra Busta Paga"  icon="ui-icon-document" />
+            <p:menuitem value="Elenco Busta Paga" icon="ui-icon-folder-collapsed" />             
+        </p:submenu>
+                <p:submenu label="Fatture">
+            <p:menuitem value="Elenco Fatture" icon="ui-icon-folder-collapsed" />
+             <p:menuitem value="Registra Fattura"  icon="ui-icon-document" />
+             <p:menuitem value="Trova Fattura" icon="ui-icon-search" />
+        </p:submenu>
+        <p:separator />
+    </p:panelMenu>
+</h:form>
+    
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head></h:head>
+<h:body>
+	    <h:form>
+	               <h:messages id="messages" />
+              
+              <h:panelGrid columns="2" style="text-align:center">
+                    <label>username:</label>
+                    <h:inputText id="username" value="#{user.username}" />
+                    
+                    <label>password</label>
+                    <h:inputSecret id="password" value="#{user.password}" />
+                          
+                    <h:commandButton value="Login" action="#{userController.doLogin(user)}">
+                    </h:commandButton>
+                    <h:commandButton value="new user" action="createUser" >
+                    </h:commandButton>
+       </h:panelGrid>
+       </h:form>
+
+</h:body>
+</html>

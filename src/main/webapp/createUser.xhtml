@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head></h:head>
+<h:body>
+<h:form>
+  
+<h:panelGroup id="panel" header="New User"> 
+ 
+        <h:messages id="msgs" />
+ 
+        <h:panelGrid columns="3" cellpadding="5">
+           <label>username:</label>
+           <h:inputText id="username" value="#{user.username}" required="true" validatorMessage="this fiels is required">
+			</h:inputText><h:message for="username"></h:message>
+            <h:outputLabel for="password" value="password" />
+            <h:inputSecret id="password" value="#{user.password}" label="password" required="true">
+                           
+           </h:inputSecret>
+            <h:message for="password"   />
+ 
+        </h:panelGrid>
+ 
+        <h:commandButton value="register" action="#{userService.createUser(user)}"  />
+</h:panelGroup>
+</h:form>
+</h:body>
+</html>
