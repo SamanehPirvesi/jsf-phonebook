@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:define name="head">
+	<style>
+.colori {
+	color: red;
+}
+</style>
+</ui:define>
+
+<ui:composition template="/layout/templateAdmin.xhtml">
+	<ui:define name="content">
+
+		<p:panel id="panel" header="new contact">
+
+			<p:messages id="msgs" />
+			<h:form>
+Name:<br />
+				<h:inputText id="name" value="#{contact.name}" label="Name"
+					required="true" requiredMessage="this filed is empty">
+					<f:validateLength minimum="2" />
+				</h:inputText>
+				<h:message for="name" styleClass="colori" />
+				<br />
+tellnumber:<br />
+				<h:inputText id="tellnumber" value="#{contact.tellnumber}" label="tellnumber"
+					required="true" requiredMessage="please enter the tellnumber">
+					<f:validateLength minimum="2" />
+				</h:inputText>
+				<h:message for="tellnumber" styleClass="colori" />
+				<br />
+ 
+				<h:commandButton value="Register"
+					action="#{contactController.registerContact(contact)}" />
+			</h:form>
+		</p:panel>
+	</ui:define>
+</ui:composition>
+</html>

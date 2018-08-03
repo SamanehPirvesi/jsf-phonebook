@@ -1,14 +1,15 @@
 package com.example.jsf.phonebook.service;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
+
 
 import com.example.jsf.phonebook.dao.ContactDao;
 import com.example.jsf.phonebook.model.Contact;
 
-@ManagedBean(eager = true)
+
 public class ContactService {
 
+	private ContactDao contactDao=new ContactDao();
+	
 	public ContactDao getContactDao() {
 		return contactDao;
 	}
@@ -17,9 +18,7 @@ public class ContactService {
 		this.contactDao = contactDao;
 	}
 
-	@ManagedProperty(value = "#{cDao}")
-	private ContactDao contactDao;
-
+	
 	public boolean createContact(Contact c) {
 		return contactDao.createContact(c);
 	}

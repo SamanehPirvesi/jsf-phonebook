@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -13,7 +14,7 @@ import com.example.jsf.phonebook.model.Contact;
 import com.example.jsf.phonebook.model.User;
 import com.example.jsf.phonebook.utility.HibernateUtil;
 
-@ManagedBean(name ="uDao", eager = true)
+
 public class UserDao implements Serializable {
 	/**
 	 * 
@@ -223,17 +224,5 @@ public class UserDao implements Serializable {
 		return res;
 	}
 
-	public void fillUserBean(User ufb, User ub) {
-		// for (Contact c:ub.getListContact()) {
-		// System.out.println("namr"+c.getTellnumber());
-		// }
-		ub.setUserId(ufb.getUserId());
-		ub.setListContact(ufb.getListContact());
-
-	}
-
-	public void fillListOfCntactForUserBean(User ub) {
-		User u = getUserById(ub.getUserId());
-		ub.setListContact(u.getListContact());
-	}
+	
 }

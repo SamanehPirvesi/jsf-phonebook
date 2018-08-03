@@ -1,8 +1,6 @@
 package com.example.jsf.phonebook.dao;
 
 
-import javax.faces.bean.ManagedBean;
-
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -10,7 +8,7 @@ import org.hibernate.query.Query;
 import com.example.jsf.phonebook.model.Contact;
 import com.example.jsf.phonebook.utility.HibernateUtil;
 
-@ManagedBean(name="cDao", eager=true)
+
 public class ContactDao {
 
 	// 1- Create

@@ -12,24 +12,13 @@
  
     <p:panelMenu style="width:200px">
             <p:submenu label="Home Page">
-            <p:menuitem value="Home" icon="ui-icon-home" />
+            <p:menuitem value="Home" outcome="/userHome" icon="ui-icon-home" />
         </p:submenu>
-        <p:submenu label="Menu Clienti">
-            <p:menuitem value="Elenco Clienti" icon="ui-icon-person" />
-            <p:menuitem value="Registra Cliente"  icon="ui-icon-plus" />
+        <p:submenu label="Contact">
+            <p:menuitem value="New Contact"  outcome="/newContact" icon="ui-icon-plus" />
+            <p:menuitem value="List of Contact's"  outcome="/contactList" icon="ui-icon-person" />
         </p:submenu>
-        <p:submenu label="Menu Dipendenti">
-            <p:menuitem value="Elenco Dipendenti" icon="ui-icon-person" />
-            <p:menuitem value="Registra Dipendenti"  icon="ui-icon-plus" />
-             <p:menuitem value="Registra Busta Paga"  icon="ui-icon-document" />
-            <p:menuitem value="Elenco Busta Paga" icon="ui-icon-folder-collapsed" />             
-        </p:submenu>
-                <p:submenu label="Fatture">
-            <p:menuitem value="Elenco Fatture" icon="ui-icon-folder-collapsed" />
-             <p:menuitem value="Registra Fattura"  icon="ui-icon-document" />
-             <p:menuitem value="Trova Fattura" icon="ui-icon-search" />
-        </p:submenu>
-        <p:separator />
+       <p:separator />
     </p:panelMenu>
 </h:form>
     

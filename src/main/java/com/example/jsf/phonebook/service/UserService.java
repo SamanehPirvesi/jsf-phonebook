@@ -4,17 +4,17 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 
 import com.example.jsf.phonebook.dao.UserDao;
 import com.example.jsf.phonebook.model.Contact;
 import com.example.jsf.phonebook.model.User;
 
-@ManagedBean( name ="userService",eager = true)
 public class UserService {
 
 	
-	@ManagedProperty(value ="#{uDao}")
-	private UserDao userDao;
+	
+	private UserDao userDao=new UserDao();
 
 	public UserDao getUserDao() {
 		return userDao;
