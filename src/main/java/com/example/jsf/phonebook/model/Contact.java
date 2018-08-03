@@ -1,13 +1,19 @@
 package com.example.jsf.phonebook.model;
+import java.io.Serializable;
+
 import javax.faces.bean.ManagedBean;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-@ManagedBean(eager=true)
+@ManagedBean(name="contact", eager=true)
 @Entity
-public class Contact {
+public class Contact implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long contact_id;

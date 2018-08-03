@@ -1,9 +1,11 @@
 package com.example.jsf.phonebook.controller;
 
+import java.io.Serializable;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 import org.primefaces.event.RowEditEvent;
@@ -12,16 +14,27 @@ import com.example.jsf.phonebook.model.Contact;
 import com.example.jsf.phonebook.model.User;
 import com.example.jsf.phonebook.service.ContactService;
 import com.example.jsf.phonebook.service.UserService;
-@SessionScoped
-@ManagedBean(eager = true)
-public class ContactController {
+@ViewScoped
+@ManagedBean
+public class ContactController implements Serializable{
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private ContactService contactService=new ContactService();
 	private UserService userService=new UserService();
+	private Contact selectedContact;
+	
 	@ManagedProperty(value="#{userController}")
 	private UserController userController;
 	
+	
+	public ContactController() {
+		
+	}
+
 	public UserService getUserService() {
 		return userService;
 	}
@@ -46,6 +59,14 @@ public class ContactController {
 		this.contactService = contactService;
 	}
 
+	public Contact getSelectedContact() {
+		return selectedContact;
+	}
+
+	public void setSelectedContact(Contact selectedContact) {
+		this.selectedContact = selectedContact;
+	}
+
 	public String registerContact(Contact contact) {
 		User readedUser=userService.getUserById(userController.getLoginId());
 		contact.setUser(readedUser);
@@ -59,9 +80,12 @@ public class ContactController {
 	}
 	
 	public void onRowEdit(RowEditEvent event) {
-	
-        FacesMessage msg = new FacesMessage("contact saved", ((Contact) event.getObject()).getName());
-        FacesContext.getCurrentInstance().addMessage(null, msg);
+		Contact contact=contactService.getContactById(((Contact)event.getObject()).getContact_id());
+		contactService.updateContact(contact);
+        FacesMessage msg = new FacesMessage("contact saved");
+    	FacesContext.getCurrentInstance().addMessage(null, msg);
+//    	System.out.println( "contactid:"+((Contact)event.getObject()).getName());
+    	System.out.println( "contactid:"+((Contact)event.getObject()).getTellnumber());
     }
      
     public void onRowCancel(RowEditEvent event) {

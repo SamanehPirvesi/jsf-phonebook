@@ -9,40 +9,47 @@
 
 <ui:composition template="/layout/templateAdmin.xhtml">
 
-<ui:define name="content">
+	<ui:define name="content">
 
-<h:form id="form">
-   <p:growl id="msgs" showDetail="true"/>
- 
-   <p:dataTable id="contact" var="contact" value="#{userController.listOfContact(userController.loginId)}" editable="true" style="margin-bottom:20px">
-       <f:facet name="header">
+		<h:form id="form">
+			<p:growl id="msgs" showDetail="true" />
+
+			<p:dataTable id="contact" var="contact"	value="#{userController.listOfContact(userController.loginId)}"
+				editable="true"	editstyle="margin-bottom:20px">
+				<f:facet name="header">
            Contact's
        </f:facet>
- 
-       <p:ajax event="rowEdit" listener="#{contactController.onRowEdit}" update=":form:msgs" />
-       <p:ajax event="rowEditCancel" listener="#{contactController.onRowCancel}" update=":form:msgs" />
- 
-       <p:column headerText="Name">
-           <p:cellEditor>
-               <f:facet name="output"><h:outputText value="#{contact.name}" /></f:facet>
-               <f:facet name="input"><p:inputText id="modelInput" value="#{contact.name}" style="width:100%"/></f:facet>
-           </p:cellEditor>
-       </p:column>
- 
-       <p:column headerText="Tellnumber">
-           <p:cellEditor>
-               <f:facet name="output"><h:outputText value="#{contact.tellnumber}" /></f:facet>
-               <f:facet name="input"><p:inputText value="#{contact.tellnumber}" style="width:100%"/></f:facet>
-           </p:cellEditor>
-       </p:column>
- 
-       
-       <p:column style="width:32px">
-           <p:rowEditor />
-           </p:column>
-   </p:dataTable>
-   </h:form>
-</ui:define>
+
+				<p:ajax event="rowEdit" listener="#{contactController.onRowEdit}"
+					update=":form:msgs" />
+				<p:ajax event="rowEditCancel"
+					listener="#{contactController.onRowCancel}" update=":form:msgs" />
+
+				<p:column style="width:32px">
+					<p:rowEditor />
+				</p:column>
+				
+				<p:column  headerText="Name">
+						<p:cellEditor>
+						<f:facet name="output"><h:outputText value="#{contact.name}" style="width:100%" />
+						</f:facet>
+						<f:facet name="input"><p:inputText value="#{contact.name}" style="width:100%" />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+
+				<p:column headerText="Tellnumber" >
+						<p:cellEditor>
+						<f:facet name="output"><h:outputText value="#{contact.tellnumber}" style="width:100%" />
+						</f:facet>
+						<f:facet name="input"><p:inputText value="#{contact.tellnumber}" style="width:100%" />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+							
+			</p:dataTable>
+		</h:form>
+	</ui:define>
 
 </ui:composition>
 

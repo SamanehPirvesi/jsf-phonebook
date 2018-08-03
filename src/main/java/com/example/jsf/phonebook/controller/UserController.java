@@ -66,4 +66,8 @@ public class UserController {
 			return userService.getListOfContact(userId);
 		}
 	
+		public String createUser(User user) {
+			userService.createUser(user);
+			return "login?faces-redirect=true";
+		}
 }
