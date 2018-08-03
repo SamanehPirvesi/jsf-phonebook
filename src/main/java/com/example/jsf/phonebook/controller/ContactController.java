@@ -80,12 +80,16 @@ public class ContactController implements Serializable{
 	}
 	
 	public void onRowEdit(RowEditEvent event) {
-		Contact contact=contactService.getContactById(((Contact)event.getObject()).getContact_id());
+		Contact contact=(Contact)event.getObject();
+		System.out.println(contact.getName());
+    	System.out.println(contact.getTellnumber());
+    	
 		contactService.updateContact(contact);
         FacesMessage msg = new FacesMessage("contact saved");
     	FacesContext.getCurrentInstance().addMessage(null, msg);
 //    	System.out.println( "contactid:"+((Contact)event.getObject()).getName());
-    	System.out.println( "contactid:"+((Contact)event.getObject()).getTellnumber());
+//    	System.out.println( "contactid:"+((Contact)event.getObject()).getTellnumber());
+    
     }
      
     public void onRowCancel(RowEditEvent event) {
